@@ -24,21 +24,14 @@ public class Image extends MediaElement implements Brightness{
 	@Override
 	public void brightUp() {
 		// TODO Auto-generated method stub
-		if (this.brightness < 5) {
 			this.brightness++;
-		} else {
-			System.out.println("Maximum brightness!");
-		}
+
 	}
 
 	@Override
 	public void brightDown() {
 		// TODO Auto-generated method stub
-		if (this.brightness > 1) {
 			this.brightness--;
-		} else {
-			System.out.println("Minimum brightness!");
-		}
 	}
 
 	@Override
