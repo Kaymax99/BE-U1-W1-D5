@@ -28,52 +28,50 @@ public class Runnable {
 			temp = scanner.nextInt();
 			
 			if (temp > 0 && temp < 4) {
-			// Se viene inserito uno spazio durante la digitazione del titolo esplode TUTTO. 
-			// Non ho trovato modo di risolvere questo problema neanche online, ho provato metodi che sostituiscono e 
-			// rimuovono gli spazi, ma nulla.
-			System.out.println("Qual è il titolo? (No spazi, vedi commento su Runnable linea 31-33)");
-			String tempTitle = scanner.next();	
-			int tempB;
-			int tempVol;
-			int tempDur;
-			
-			switch (temp) {
-			
-				case 1: {
-					System.out.println("Quanto alta vuoi che sia la luminosità? (Consigliato: 1-5)");
-					tempB = scanner.nextInt();
-					arrayMedia[i] = new Image(tempTitle, tempB);
-					break;
+				// Se viene inserito uno spazio durante la digitazione del titolo esplode TUTTO. 
+				// Non ho trovato modo di risolvere questo problema neanche online, ho provato metodi che sostituiscono e 
+				// rimuovono gli spazi, ma nulla.
+				System.out.println("Qual è il titolo? (No spazi, vedi commento su Runnable linea 31-33)");
+				String tempTitle = scanner.next();	
+				int tempB;
+				int tempVol;
+				int tempDur;
+				
+				switch (temp) {
+				
+					case 1: {
+						System.out.println("Quanto alta vuoi che sia la luminosità? (Consigliato: 1-5)");
+						tempB = scanner.nextInt();
+						arrayMedia[i] = new Image(tempTitle, tempB);
+						break;
+					}
+					case 2: {
+						System.out.println("Quanto alto vuoi sia il volume? (Consigliato: 1-5)");
+						tempVol = scanner.nextInt();
+						System.out.println("Quanto dura (Consigliato: 1-10)");
+						tempDur = scanner.nextInt();
+						arrayMedia[i] = new Audio(tempTitle, tempVol, tempDur);
+						break;
+					}
+					case 3: {	
+						System.out.println("Quanto alta vuoi che sia la luminosità? (Consigliato: 1-5)");
+						tempB = scanner.nextInt();
+						System.out.println("Quanto alto vuoi sia il volume? (Consigliato: 1-5)");
+						tempVol = scanner.nextInt();
+						System.out.println("Quanto dura (Consigliato: 1-10)");
+						tempDur = scanner.nextInt();
+						arrayMedia[i] = new Video(tempTitle, tempVol, tempDur, tempB);
+						break;
+					}
+					default: {
+						System.out.println("Non è stato inserito un valore valido. Riprova.");
+						break;
+					}
 				}
-				case 2: {
-					System.out.println("Quanto alto vuoi sia il volume? (Consigliato: 1-5)");
-					tempVol = scanner.nextInt();
-					System.out.println("Quanto dura (Consigliato: 1-10)");
-					tempDur = scanner.nextInt();
-					arrayMedia[i] = new Audio(tempTitle, tempVol, tempDur);
-					break;
-				}
-				case 3: {	
-					System.out.println("Quanto alta vuoi che sia la luminosità? (Consigliato: 1-5)");
-					tempB = scanner.nextInt();
-					System.out.println("Quanto alto vuoi sia il volume? (Consigliato: 1-5)");
-					tempVol = scanner.nextInt();
-					System.out.println("Quanto dura (Consigliato: 1-10)");
-					tempDur = scanner.nextInt();
-					arrayMedia[i] = new Video(tempTitle, tempVol, tempDur, tempB);
-					break;
-				}
-				default: {
-					System.out.println("Non è stato inserito un valore valido. Riprova.");
-					i--;
-					break;
-				}
-			}
 			} else {
 				System.out.println("Non è stato inserito un valore valido. Riprova.");
-				i--;
 			}
-		} while (temp < 0 && temp > 3);
+		} while (temp <= 0 || temp > 3);
 	}
 		
 		
