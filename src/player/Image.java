@@ -1,0 +1,54 @@
+package player;
+
+import playerInterfaces.Brightness;
+
+public class Image extends MediaElement implements Brightness{
+	
+	private int brightness;
+
+	public Image(String t, int l) {
+		super(t);
+		this.setBrightness(l);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void show() {
+		String title =  this.getTitle();
+		title = title.concat(" ");
+		for (int i = 0; i < this.getBrightness(); i++) {
+			title = title.concat("*");
+		}
+		System.out.println(title);
+	}
+	
+	@Override
+	public void brightUp() {
+		// TODO Auto-generated method stub
+		if (this.brightness < 5) {
+			this.brightness++;
+		} else {
+			System.out.println("Maximum brightness!");
+		}
+	}
+
+	@Override
+	public void brightDown() {
+		// TODO Auto-generated method stub
+		if (this.brightness > 1) {
+			this.brightness--;
+		} else {
+			System.out.println("Minimum brightness!");
+		}
+	}
+
+	@Override
+	public int getBrightness() {
+		return brightness;
+	}
+
+	@Override
+	public void setBrightness(int b) {
+		this.brightness = b;
+	}
+
+}
