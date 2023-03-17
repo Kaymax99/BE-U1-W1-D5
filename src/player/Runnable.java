@@ -26,13 +26,16 @@ public class Runnable {
 			System.out.println("Elemento " + (i + 1) + " - Che tipo di media vuoi creare?");
 			System.out.println("Immagine: 1 | File Audio: 2 | Video: 3");
 			temp = scanner.nextInt();
+			scanner.nextLine();
 			
 			if (temp > 0 && temp < 4) {
 				// Se viene inserito uno spazio durante la digitazione del titolo esplode TUTTO. 
 				// Non ho trovato modo di risolvere questo problema neanche online, ho provato metodi che sostituiscono e 
 				// rimuovono gli spazi, ma nulla.
-				System.out.println("Qual è il titolo? (No spazi, vedi commento su Runnable linea 31-33)");
-				String tempTitle = scanner.next();	
+				// EDIT: GRAZIE Flavio per aver parlato della strana interezione tra nextInt nello scanner seguito dal nextLine, ora funziona correttamente.
+				
+				System.out.println("Qual è il titolo?");
+				String tempTitle = scanner.nextLine();	
 				int tempB;
 				int tempVol;
 				int tempDur;
